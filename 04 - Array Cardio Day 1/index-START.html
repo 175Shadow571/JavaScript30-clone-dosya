@@ -6,12 +6,12 @@
   <link rel="icon" href="https://fav.farm/🔥" />
 </head>
 <body>
-  <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+  <p><em>Psst: JavaScript Konsoluna bir göz atın</em> 💁</p>
   <script>
-    // Get your shorts on - this is an array workout!
-    // ## Array Cardio Day 1
+    // Şortunuzu giyin - bu çok çeşitli bir egzersiz!
+    // ## Dizi Kardiyo 1. Gün
 
-    // Some data we can work with
+    // Çalışabileceğimiz bazı veriler
 
     const inventors = [
       { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
@@ -37,28 +37,58 @@
     ];
     
     // Array.prototype.filter()
-    // 1. Filter the list of inventors for those who were born in the 1500's
-
+    // 1. 1500'lü yıllarda doğan mucitlerin listesini filtreleyin
+  let binBesyuzluMucidler = inventors.filter(kisi => kisi.year>=1500 && kisi.year<1600)
+  console.log("1500 lü mucidler: ");
+  console.log(binBesyuzluMucidler);
+  
     // Array.prototype.map()
-    // 2. Give us an array of the inventors first and last names
-
+    // 2. Bize mucitlerin ad ve soyadlarını içeren bir dizi verin
+    let adSoyad = inventors.map(veri => veri.first + " " + veri.last)
+    console.log("Bütün mucitler:");
+    
+    console.log(adSoyad);
+    
     // Array.prototype.sort()
-    // 3. Sort the inventors by birthdate, oldest to youngest
+    // 3. Mucitleri doğum tarihine göre, en yaşlıdan en gence doğru sıralayın
+  
+    inventors.sort((veri,veri2) => veri.year<veri2.year?1:-1)
+    console.log("En Yaşlıdan En Gencine Doğru:");
+    
+    console.log(inventors);
+    
 
     // Array.prototype.reduce()
-    // 4. How many years did all the inventors live all together?
+    // 4. Tüm mucitler toplam kaç yıl birlikte yaşadılar?
+    let toplamYil = inventors.reduce((toplam,veri) => {return toplam +( veri.passed - veri.year)},0);
+    console.log("Toplam Yaşadıkları Yıl:");
+    
+    console.log(toplamYil)
 
-    // 5. Sort the inventors by years lived
+    // 5. Mucitleri yaşam yıllarına göre sıralayın
+ 
+    let yasamSiraliYil = inventors.sort((veri,veri2) => {
+      let yas1= veri.passed - veri.year 
+      let yas2 =veri2.passed - veri2.year
+      
+      return yas1 < yas2 ? 1 : -1;
+    })
+    console.log("Yaş Sırlaması:");
+    
+    console.log(yasamSiraliYil);
 
-    // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
+    let yasamYil = inventors.reduce((toplam,veri,index) => {return `${toplam} ${index + 1}.Yaşı:${veri.passed - veri.year}`},"")
+    console.log(yasamYil);
+    
+    // 6. İsminde herhangi bir yerde 'de' geçen Paris'teki Bulvarların bir listesini oluşturun
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
 
-    // 7. sort Exercise
-    // Sort the people alphabetically by last name
+    // 7. sıralama Alıştırma
+    // İnsanları soyadlarına göre alfabetik olarak sırala
 
-    // 8. Reduce Exercise
-    // Sum up the instances of each of these
+    // 8. Egzersizi Azaltın
+    // Bu örneklerin her birinin örneklerini özetleyin
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
 
   </script>
